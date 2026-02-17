@@ -2,66 +2,105 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <title>Hjalmar - Min Sida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hjalmar står med Pride</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background: linear-gradient(
+                to bottom,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet
+            );
         }
+
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.4);
         }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
         section {
-            margin: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.6);
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 800px;
+            border-radius: 15px;
         }
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #333;
+
+        button {
+            background-color: white;
+            color: black;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: black;
             color: white;
+        }
+
+        footer {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Välkommen till Hjalmars sida</h1>
+    <h1>🌈 Hjalmar står med Pride 🌈</h1>
+    <p>Kärlek är kärlek. Alla är lika mycket värda.</p>
 </header>
 
 <section>
-    <h2>Grundläggande fakta</h2>
-    <p><strong>Namn:</strong> Hjalmar</p>
-    <p><strong>Ålder:</strong> 17 år</p>
-    <p><strong>Intressen:</strong> Mira, dålig musik och innebandy</p>
+    <h2>Vad Hjalmar står för</h2>
+    <p>Hjalmar stödjer HBTQ+ rättigheter och tror på respekt, inkludering och öppenhet.</p>
+    <p>Att vara sig själv ska aldrig vara något man behöver be om ursäkt för.</p>
 </section>
 
 <section>
-    <h2>Personlighet</h2>
-    <p>Hjalmar är en lugn och tråkig person som ofta observerar mer än han pratar.</p>
-    <p>Han gillar att hålla en låg profil men har en torr humor när man lär känna honom.</p>
+    <h2>Budskap</h2>
+    <p>🧡 Sprid kärlek</p>
+    <p>💛 Stå upp för varandra</p>
+    <p>💚 Respektera olikheter</p>
+    <p>💙 Var stolt över den du är</p>
 </section>
 
 <section>
-    <h2>Roliga Fakta</h2>
-    <ul>
-        <li>Kan citera repliker från sina favoritspel.</li>
-        <li>Har aldrig tackat nej till pizza.</li>
-        <li>Är expert på att vara tråkig.</li>
-    </ul>
+    <h2>Visa ditt stöd</h2>
+    <button onclick="showMessage()">Klicka här 🌈</button>
+    <p id="message"></p>
 </section>
 
 <footer>
-    <p>© 2026 Hjalmar</p>
+    <p>© 2026 Hjalmar | Pride & Respekt</p>
 </footer>
+
+<script>
+    function showMessage() {
+        document.getElementById("message").innerHTML = 
+        "Tillsammans skapar vi en värld där alla får vara sig själva ❤️🌈";
+    }
+</script>
 
 </body>
 </html>
