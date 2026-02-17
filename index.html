@@ -1,138 +1,154 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hjalmar Granfeldt ❤️ Pride</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hjalmar Granfeldt ❤️ Pride</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(
-                135deg,
-                #ff0000,
-                #ff8c00,
-                #ffd700,
-                #008000,
-                #0000ff,
-                #8b00ff,
-                #5BCEFA,
-                #F5A9B8,
-                #FFFFFF,
-                #F5A9B8,
-                #5BCEFA
-            );
-            background-size: 600% 600%;
-            animation: prideFlow 18s ease infinite;
-            color: white;
-        }
+<style>
 
-        @keyframes prideFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+/* ANIMERAD PRIDE + TRANS BAKGRUND */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff8c00,
+        #ffd700,
+        #00ff00,
+        #00bfff,
+        #8a2be2,
+        #5BCEFA,
+        #F5A9B8,
+        #FFFFFF,
+        #F5A9B8,
+        #5BCEFA
+    );
+    background-size: 800% 800%;
+    animation: rainbowMove 20s ease infinite;
+    color: white;
+}
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: rgba(0,0,0,0.75);
-        }
+@keyframes rainbowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(0,0,0,0.8);
+}
 
-        header p {
-            font-size: 1.4em;
-        }
+header h1 {
+    font-size: 3.5em;
+    text-shadow: 0 0 15px #ffffff;
+}
 
-        .hero-img {
-            margin-top: 30px;
-        }
+header p {
+    font-size: 1.5em;
+}
 
-        .hero-img img {
-            width: 300px;
-            max-width: 90%;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255,255,255,0.6);
-        }
+/* BILD */
+.hero-img {
+    margin-top: 30px;
+}
 
-        section {
-            padding: 50px 20px;
-            background: rgba(0,0,0,0.75);
-            margin: 20px;
-            border-radius: 20px;
-        }
+.hero-img img {
+    width: 320px;
+    max-width: 90%;
+    border-radius: 25px;
+    border: 6px solid white;
+    box-shadow: 0 0 40px #5BCEFA, 0 0 60px #F5A9B8;
+    transition: transform 0.4s ease;
+}
 
-        h2 {
-            color: #5BCEFA;
-        }
+.hero-img img:hover {
+    transform: scale(1.08);
+}
 
-        .values {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+/* SEKTIONER */
+section {
+    padding: 50px 20px;
+    background: rgba(0,0,0,0.8);
+    margin: 25px;
+    border-radius: 25px;
+}
 
-        .card {
-            flex: 1 1 250px;
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 15px;
-            transition: 0.3s;
-        }
+h2 {
+    color: #5BCEFA;
+    text-shadow: 0 0 10px #F5A9B8;
+}
 
-        .card:hover {
-            transform: scale(1.05);
-            background: rgba(255,255,255,0.2);
-        }
+.values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
 
-        .trans-highlight {
-            background: linear-gradient(
-                90deg,
-                #5BCEFA,
-                #F5A9B8,
-                #FFFFFF,
-                #F5A9B8,
-                #5BCEFA
-            );
-            padding: 10px;
-            border-radius: 10px;
-            color: black;
-            font-weight: bold;
-            margin-top: 20px;
-        }
+.card {
+    flex: 1 1 260px;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #5BCEFA,
+        #F5A9B8,
+        #FFFFFF,
+        #F5A9B8,
+        #5BCEFA
+    );
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.85);
-            font-size: 0.9em;
-        }
+.card:hover {
+    transform: scale(1.05);
+}
 
-        .cta {
-            text-align: center;
-            margin-top: 30px;
-        }
+/* KONFETTI */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: red;
+    top: -10px;
+    animation: fall 5s linear infinite;
+}
 
-        .cta a {
-            background: #ffffff;
-            color: #000;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
 
-        .cta a:hover {
-            background: #5BCEFA;
-        }
-    </style>
+footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.9);
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg,#5BCEFA,#F5A9B8);
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
@@ -140,69 +156,47 @@
     <p>Står med Pride och transcommunityt – i vått och torrt.</p>
 
     <div class="hero-img">
-        <img src="A_photograph_features_a_young_male_floorball_playe.png" alt="Hjalmar Granfeldt visar sitt stöd för Pride">
+        <!-- SE TILL ATT BILDEN HETER hjalmar.png -->
+        <img src="hjalmar.png" alt="Hjalmar Granfeldt visar stöd för Pride">
     </div>
 </header>
 
 <section>
-    <h2>Kärlek utan gränser</h2>
+    <h2>Kärlek är kärlek</h2>
     <p>
-        Hjalmar Granfeldt visar öppet och stolt sitt stöd för Pride,
-        HBTQ+-communityt och särskilt transpersoners rättigheter.
-        För honom handlar det om mänskliga rättigheter, respekt och
-        allas rätt att leva autentiskt.
+        Hjalmar Granfeldt står stolt med Pride-rörelsen och transcommunityt.
+        För honom handlar det om respekt, jämlikhet och rätten att vara sig själv.
+        Han visar sitt stöd året runt – inte bara under Pride-månaden.
     </p>
-
-    <div class="trans-highlight">
-        🏳️‍⚧️ Transrättigheter är mänskliga rättigheter.
-    </div>
 </section>
 
 <section>
-    <h2>Värderingar som driver honom</h2>
+    <h2>🏳️‍⚧️ Transrättigheter är mänskliga rättigheter</h2>
 
     <div class="values">
         <div class="card">
-            <h3>Inkludering</h3>
-            <p>
-                Alla ska känna sig välkomna – oavsett könsidentitet,
-                könsuttryck eller sexuell läggning.
-            </p>
+            Inkludering – Alla identiteter är välkomna.
         </div>
 
         <div class="card">
-            <h3>Mod & Solidaritet</h3>
-            <p>
-                Att stå upp för Pride och transpersoners rättigheter
-                kräver tydlighet. Hjalmar står kvar även när det blåser.
-            </p>
+            Mod – Att stå upp även när det blåser.
         </div>
 
         <div class="card">
-            <h3>Gemenskap</h3>
-            <p>
-                Pride är gemenskap, färg och kärlek. Han står sida vid sida
-                med communityt – i regn, i solsken, i vått och torrt.
-            </p>
+            Solidaritet – I regn, i solsken, i vått och torrt.
         </div>
     </div>
 </section>
 
-<section>
-    <h2>I vått och torrt</h2>
-    <p>
-        Oavsett om det är Prideparad, manifestation eller vardagligt stöd
-        visar Hjalmar att solidaritet inte är något tillfälligt.
-        Det är en övertygelse som lever året runt.
-    </p>
-
-    <div class="cta">
-        <a href="#">Stå upp för Pride & Transrättigheter</a>
-    </div>
+<section style="text-align:center;">
+    <h2>Visa ditt stöd 🌈</h2>
+    <button onclick="alert('Kärlek vinner alltid! 🏳️‍🌈🏳️‍⚧️')">
+        Klicka för Pride!
+    </button>
 </section>
 
 <footer>
-    © 2026 Hjalmar Granfeldt | Kärlek är kärlek 🌈🏳️‍⚧️
+    © 2026 | Kärlek • Respekt • Gemenskap 🌈🏳️‍⚧️
 </footer>
 
 </body>
