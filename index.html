@@ -3,104 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hjalmar står med Pride</title>
-
+    <title>Hjalmar Granfeldt & Pride</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #ff0000, #ff8c00, #ffd700, #008000, #0000ff, #4b0082, #8b00ff);
+            background-size: 400% 400%;
+            animation: prideBackground 15s ease infinite;
             color: white;
-            text-align: center;
-            background: linear-gradient(
-                to bottom,
-                red,
-                orange,
-                yellow,
-                green,
-                blue,
-                indigo,
-                violet
-            );
+        }
+
+        @keyframes prideBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         header {
+            text-align: center;
             padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0,0,0,0.6);
         }
 
-        h1 {
+        header h1 {
             font-size: 3em;
             margin: 0;
         }
 
+        header p {
+            font-size: 1.3em;
+            margin-top: 15px;
+        }
+
         section {
-            background: rgba(0, 0, 0, 0.6);
-            margin: 30px auto;
-            padding: 30px;
-            max-width: 800px;
+            padding: 50px 20px;
+            background: rgba(0,0,0,0.7);
+            margin: 20px;
             border-radius: 15px;
         }
 
-        button {
-            background-color: white;
-            color: black;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: 0.3s;
+        h2 {
+            color: #ffd700;
         }
 
-        button:hover {
-            background-color: black;
-            color: white;
+        .values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            flex: 1 1 250px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
         }
 
         footer {
+            text-align: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            margin-top: 40px;
+            background: rgba(0,0,0,0.8);
+            font-size: 0.9em;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta a {
+            background: #ffffff;
+            color: #000;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            background: #ffd700;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🌈 Hjalmar står med Pride 🌈</h1>
-    <p>Kärlek är kärlek. Alla är lika mycket värda.</p>
+    <h1>Hjalmar Granfeldt & Pride</h1>
+    <p>Står med kärlek, respekt och gemenskap – i vått och torrt.</p>
 </header>
 
 <section>
-    <h2>Vad Hjalmar står för</h2>
-    <p>Hjalmar stödjer HBTQ+ rättigheter och tror på respekt, inkludering och öppenhet.</p>
-    <p>Att vara sig själv ska aldrig vara något man behöver be om ursäkt för.</p>
+    <h2>En stark röst för inkludering</h2>
+    <p>
+        Hjalmar Granfeldt visar öppet sitt stöd för Pride och HBTQ+-communityt.
+        För honom handlar det om mer än en flagga – det handlar om människors rätt
+        att vara sig själva, att älska vem de vill och att känna sig trygga i samhället.
+        Han står med communityt i vått och torrt, oavsett motgångar eller utmaningar.
+    </p>
 </section>
 
 <section>
-    <h2>Budskap</h2>
-    <p>🧡 Sprid kärlek</p>
-    <p>💛 Stå upp för varandra</p>
-    <p>💚 Respektera olikheter</p>
-    <p>💙 Var stolt över den du är</p>
+    <h2>Värderingar som betyder något</h2>
+    <div class="values">
+        <div class="card">
+            <h3>Respekt</h3>
+            <p>
+                Alla människor förtjänar respekt. Hjalmar betonar vikten av att bemöta
+                varandra med förståelse och öppenhet.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Mod</h3>
+            <p>
+                Att stå upp för det som är rätt kräver mod. Genom sitt stöd visar
+                han att solidaritet är starkare än fördomar.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Gemenskap</h3>
+            <p>
+                Pride handlar om gemenskap och kärlek. Hjalmar är en del av den
+                gemenskapen och sprider positiv energi omkring sig.
+            </p>
+        </div>
+    </div>
 </section>
 
 <section>
-    <h2>Visa ditt stöd</h2>
-    <button onclick="showMessage()">Klicka här 🌈</button>
-    <p id="message"></p>
+    <h2>I vått och torrt</h2>
+    <p>
+        Oavsett om solen skiner över en Prideparad eller regnet faller under en
+        manifestation, står Hjalmar Granfeldt sida vid sida med communityt.
+        Stödet är inte tillfälligt – det är en övertygelse som håller över tid.
+    </p>
+
+    <div class="cta">
+        <a href="#">Visa ditt stöd för Pride</a>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 Hjalmar | Pride & Respekt</p>
+    © 2026 Hjalmar Granfeldt | Kärlek är kärlek 🏳️‍🌈
 </footer>
-
-<script>
-    function showMessage() {
-        document.getElementById("message").innerHTML = 
-        "Tillsammans skapar vi en värld där alla får vara sig själva ❤️🌈";
-    }
-</script>
 
 </body>
 </html>
