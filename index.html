@@ -1,54 +1,181 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJALMAR IS PRIDE 🌈🏳️‍⚧️</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pride Game – Hjalmar Edition 🌈</title>
 
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff8c00,
+        #ffff00,
+        #00ff00,
+        #00bfff,
+        #8a2be2,
+        #5BCEFA,
+        #F5A9B8,
+        #FFFFFF,
+        #F5A9B8,
+        #5BCEFA
+    );
+    background-size: 800% 800%;
+    animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+canvas {
+    display: block;
+}
+
+#score {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+</style>
+</head>
 <body>
 
-<header>
-    <h1>HJALMAR GRANFELDT 🌈</h1>
-    <h2>PRIDE. ALLTID. ÖVERALLT. 🏳️‍⚧️</h2>
-
-    <div class="hero-img">
-        <img src="hjalmar.png" alt="Hjalmar Pride">
-    </div>
-</header>
-
-<section>
-    <h2>KÄRLEK ÄR KÄRLEK</h2>
-    <p>
-        Pride är färg. Pride är styrka. Pride är frihet.
-        Hjalmar står med regnbågen och transflaggan
-        i vått och torrt – året runt.
-    </p>
-</section>
-
-<section>
-    <h2>🏳️‍⚧️ TRANS POWER</h2>
-    <p>
-        Transrättigheter är mänskliga rättigheter.
-        Solidaritet betyder att man står kvar.
-        Stolthet betyder att man aldrig bleknar.
-    </p>
-</section>
-
-<section class="energy">
-    <h2>🌈 PRIDE ENERGY 🌈</h2>
-    <button onclick="celebrate()">KLICKA FÖR MAX PRIDE</button>
-</section>
-
-<footer>
-    🌈🏳️‍⚧️ LOVE WINS ALWAYS 🏳️‍⚧️🌈
-</footer>
+<div id="score">Pride-poäng: 0 🌈</div>
+<canvas id="game"></canvas>
 
 <script>
-function celebrate() {
-    alert("🌈🏳️‍⚧️ MAX PRIDE ENERGY AKTIVERAD 🏳️‍⚧️🌈");
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let score = 0;
+
+const player = {
+    x: canvas.width / 2 - 40,
+    y: canvas.height - 120,
+    width: 80,
+    height: 80,
+    speed: 7
+};
+
+let items = [];
+let enemies = [];
+
+function spawnItem() {
+    items.push({
+        x: Math.random() * canvas.width,
+        y: -20,
+        size: 20,
+        speed: 3
+    });
 }
+
+function spawnEnemy() {
+    enemies.push({
+        x: Math.random() * canvas.width,
+        y: -20,
+        size: 25,
+        speed: 4
+    });
+}
+
+function drawPlayer() {
+    const prideGradient = ctx.createLinearGradient(
+        player.x,
+        player.y,
+        player.x + player.width,
+        player.y + player.height
+    );
+
+    prideGradient.addColorStop(0, "#ff0000");
+    prideGradient.addColorStop(0.2, "#ff8c00");
+    prideGradient.addColorStop(0.4, "#ffff00");
+    prideGradient.addColorStop(0.6, "#00ff00");
+    prideGradient.addColorStop(0.8, "#00bfff");
+    prideGradient.addColorStop(1, "#8a2be2");
+
+    ctx.fillStyle = prideGradient;
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+}
+
+function drawItems() {
+    items.forEach((item, i) => {
+        ctx.beginPath();
+        ctx.fillStyle = "#5BCEFA";
+        ctx.arc(item.x, item.y, item.size, 0, Math.PI * 2);
+        ctx.fill();
+        item.y += item.speed;
+
+        if(item.y > canvas.height) items.splice(i,1);
+
+        if(
+            item.x < player.x + player.width &&
+            item.x + item.size > player.x &&
+            item.y < player.y + player.height &&
+            item.y + item.size > player.y
+        ){
+            score++;
+            document.getElementById("score").innerText =
+                "Pride-poäng: " + score + " 🌈🏳️‍⚧️";
+            items.splice(i,1);
+        }
+    });
+}
+
+function drawEnemies() {
+    enemies.forEach((enemy, i) => {
+        ctx.beginPath();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.arc(enemy.x, enemy.y, enemy.size, 0, Math.PI * 2);
+        ctx.fill();
+        enemy.y += enemy.speed;
+
+        if(enemy.y > canvas.height) enemies.splice(i,1);
+
+        if(
+            enemy.x < player.x + player.width &&
+            enemy.x + enemy.size > player.x &&
+            enemy.y < player.y + player.height &&
+            enemy.y + enemy.size > player.y
+        ){
+            alert("Game Over! Pride-poäng: " + score + " 🌈🏳️‍⚧️");
+            document.location.reload();
+        }
+    });
+}
+
+function update() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    drawPlayer();
+    drawItems();
+    drawEnemies();
+    requestAnimationFrame(update);
+}
+
+document.addEventListener("keydown", e => {
+    if(e.key === "ArrowLeft" && player.x > 0){
+        player.x -= player.speed;
+    }
+    if(e.key === "ArrowRight" && player.x < canvas.width - player.width){
+        player.x += player.speed;
+    }
+});
+
+setInterval(spawnItem, 1000);
+setInterval(spawnEnemy, 2000);
+
+update();
 </script>
 
 </body>
